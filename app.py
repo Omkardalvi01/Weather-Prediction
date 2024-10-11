@@ -34,14 +34,13 @@ def main():
     temp9am = st.number_input('Temperature at 9 am', value=None, min_value=0.0)
     temp3pm = st.number_input('Temperature at 3 pm', value=None, min_value=0.0)
     raintoday = st.selectbox('Did it rain today', options=['Yes','No'])
-    Risk = st.number_input('Risk', value=None, min_value=0.0)
 
     data = pd.DataFrame({
         'MinTemp' : [mintemp], 'MaxTemp' : [maxtemp], 'Rainfall' : [rainfall], 'WindGustDir' :[WindGustDir],
        'WindGustSpeed' : [WindGustSpeed], 'WindDir9am' : [WindDir9am], 'WindDir3pm' : [WindDir3pm], 'WindSpeed9am' : [WindSpeed9am],
        'WindSpeed3pm' : [WindSpeed3pm], 'Humidity9am' : [Humidity9am], 'Humidity3pm' : [Humidity3pm], 'Pressure9am' : [Pressure9am],
        'Pressure3pm' : [Pressure3pm], 'Cloud9am' : [cloud9am], 'Cloud3pm' : [cloud3pm], 'Temp9am' : [temp9am], 'Temp3pm': [temp3pm],
-       'RainToday' : [raintoday], 'RISK_MM' : [Risk]
+       'RainToday' : [raintoday]
     })
     cat_columns = ['WindGustDir', 'WindDir9am', 'WindDir3pm', 'RainToday']
     one_hot_values = encoder.transform(data[cat_columns])
